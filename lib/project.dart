@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MyProjects extends StatefulWidget {
   const MyProjects({super.key});
@@ -51,7 +52,14 @@ class _MyProjectsState extends State<MyProjects> {
                   ),
                   Expanded(child: Container()),
                   IconButton(
-                      onPressed: () {},
+                      onPressed: () async {
+                        var url =
+                            Uri.https("github.com/Cadosfrit/my_portfolio_app");
+                        launchUrl(url);
+                        if (await canLaunchUrl(url)) {
+                          launchUrl(url);
+                        }
+                      },
                       icon: Icon(
                         FontAwesomeIcons.github,
                         color: Colors.white70,
@@ -83,7 +91,7 @@ class _MyProjectsState extends State<MyProjects> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              myPro('FLUTTER', 'Click To Code', 'An Online Compiler', '10'),
+              myPro('FLUTTER', 'Demo', 'Demo', '10'),
             ],
           ),
         ),
