@@ -53,8 +53,10 @@ class _MyProjectsState extends State<MyProjects> {
                   Expanded(child: Container()),
                   IconButton(
                       onPressed: () async {
-                        var url =
-                            Uri.https("github.com/Cadosfrit/my_portfolio_app");
+                        var url = Uri.https(
+                          "www.github.com",
+                          "/Cadosfrit/my_portfolio_app",
+                        );
                         launchUrl(url);
                         if (await canLaunchUrl(url)) {
                           launchUrl(url);
@@ -91,7 +93,7 @@ class _MyProjectsState extends State<MyProjects> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              myPro('FLUTTER', 'Demo', 'Demo', '10'),
+              myPro('FLUTTER', 'My Portfolio App', 'Demo', '10'),
             ],
           ),
         ),

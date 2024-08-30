@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MyAbout extends StatefulWidget {
   const MyAbout({super.key});
@@ -74,7 +75,17 @@ class _MyAboutState extends State<MyAbout> {
                   SizedBox(
                     width: 150,
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () async {
+                        final Uri emailLaunchUri = Uri(
+                            scheme: 'mailto',
+                            path: 'ronitroshan2003@gmail.com');
+
+                        try {
+                          await launchUrl(emailLaunchUri);
+                        } catch (e) {
+                          print('Could not launch $emailLaunchUri: $e');
+                        }
+                      },
                       child: Text(
                         'Hire Me',
                         style: TextStyle(color: Colors.black),
@@ -88,37 +99,52 @@ class _MyAboutState extends State<MyAbout> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(83, 800, 83, 20),
+              padding: const EdgeInsets.fromLTRB(131, 800, 131, 20),
               child: Row(
                 children: [
                   IconButton(
-                      onPressed: () {},
+                      onPressed: () async {
+                        var url = Uri.https(
+                          "www.instagram.com",
+                          "/ronitroshannayak",
+                        );
+                        launchUrl(url);
+                        if (await canLaunchUrl(url)) {
+                          launchUrl(url);
+                        }
+                      },
                       icon: Icon(
                         FontAwesomeIcons.instagram,
                         color: Colors.white,
                       )),
                   IconButton(
-                      onPressed: () {},
+                      onPressed: () async {
+                        var url = Uri.https(
+                          "github.com",
+                          "/Cadosfrit",
+                        );
+                        launchUrl(url);
+                        if (await canLaunchUrl(url)) {
+                          launchUrl(url);
+                        }
+                      },
                       icon: Icon(
                         FontAwesomeIcons.git,
                         color: Colors.white,
                       )),
                   IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        FontAwesomeIcons.twitter,
-                        color: Colors.white,
-                      )),
-                  IconButton(
-                      onPressed: () {},
+                      onPressed: () async {
+                        var url = Uri.https(
+                          "www.linkedin.com",
+                          "/in/ronit-roshan-nayak-8ab4232bb/",
+                        );
+                        launchUrl(url);
+                        if (await canLaunchUrl(url)) {
+                          launchUrl(url);
+                        }
+                      },
                       icon: Icon(
                         FontAwesomeIcons.linkedin,
-                        color: Colors.white,
-                      )),
-                  IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        FontAwesomeIcons.facebook,
                         color: Colors.white,
                       )),
                 ],

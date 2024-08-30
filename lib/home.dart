@@ -1,6 +1,9 @@
 import 'dart:ui';
-
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/widgets.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
+
 import 'package:sliding_sheet2/sliding_sheet2.dart';
 
 class MyHome extends StatefulWidget {
@@ -170,16 +173,16 @@ class _MyHomeState extends State<MyHome> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      myAchieve('66', 'Projects'),
-                      myAchieve('10', 'Clients'),
-                      myAchieve('23', 'Certifications')
+                      myAchieve('02', 'Projects'),
+                      myAchieve('00', 'Clients'),
+                      myAchieve('00', 'Certifications')
                     ],
                   ),
                   SizedBox(
                     height: 26,
                   ),
                   Text(
-                    'Specialized In',
+                    'Learning ',
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(
@@ -190,9 +193,33 @@ class _MyHomeState extends State<MyHome> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          mySpec(Icons.android, 'Android'),
-                          mySpec(Icons.apple, 'IOS'),
-                          mySpec(Icons.html, 'HTML')
+                          mySpec(FontAwesomeIcons.android, 'Android'),
+                          Container(
+                              width: 115,
+                              height: 115,
+                              child: Card(
+                                elevation: 20,
+                                margin: EdgeInsets.all(0),
+                                color: Color(0xff252525),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(100)),
+                                child: Container(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      FlutterLogo(),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Text(
+                                        "Flutter",
+                                        style: TextStyle(color: Colors.white),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              )),
+                          mySpec(FontAwesomeIcons.react, 'React JS'),
                         ],
                       ),
                       SizedBox(
@@ -201,20 +228,9 @@ class _MyHomeState extends State<MyHome> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          mySpec(Icons.css, 'CSS'),
+                          mySpec(FontAwesomeIcons.node, 'Node JS'),
                           mySpec(Icons.javascript, 'JavaScript'),
-                          mySpec(Icons.discord, 'Discord')
-                        ],
-                      ),
-                      SizedBox(
-                        height: 13,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          mySpec(Icons.php, 'PHP'),
-                          mySpec(Icons.laptop_chromebook, 'Software\nEngineer'),
-                          mySpec(Icons.window, 'Windows')
+                          mySpec(Icons.html, 'HTML')
                         ],
                       ),
                     ],
